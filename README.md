@@ -1,4 +1,8 @@
-# material2-app
-Simple app that consumes Angular Material 2 components. Built with the `angular-cli`.
+# OpenTTC
+Submission for UofT Hacks IV
 
-See it live: https://material2-app.firebaseapp.com/
+# Purpose
+(Coming soon)
+
+# Authors
+David Minin and Tal Zaitsev
