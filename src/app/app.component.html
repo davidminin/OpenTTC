@@ -1,9 +1,19 @@
-<div class="top">
-  <h1>Open TTC</h1>
+<div id="background">
+  <div class="top">
+    <h1>Open TTC</h1>
 
-  <div class="bar">
-    <input id="routeInput" placeholder="Choose your Route"/>
-    <button class="btn btn-default dropdown-toggle" type="button" id="routeDrop" data-toggle="dropdown">Search</button>
+    <div class="bar">
+      <input id="inputRoute" placeholder="Choose your Route"/>
+      <search-component></search-component>
+    </div>
   </div>
+</div>
+<div class="container">
+  <ul *ngFor="let card of route" (click)="onSelect(card)">
+    <li>
+      <p>Stop: {{card.name}} </p>
+      <p>Estimated Arrival: <span class="green">{{card.expArrival}}</span></p>
+    </li>
+  </ul>
 </div>
 

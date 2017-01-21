@@ -1,0 +1,10 @@
+<typeahead
+  [(ngModel)]="selectedFruit"
+  [list]="fruits"
+  [searchProperty]="'searchText'" [displayProperty]="'name'"
+  [maxSuggestions]="2"
+  (suggestionSelected)="fruitSelected($event)"
+  placeholder="Begin typing a fruit">
+</typeahead>
+ 
+<p>You selected {{ fruitName }}</p>
