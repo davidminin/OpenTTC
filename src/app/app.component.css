@@ -1,0 +1,21 @@
+.top {
+    margin: 2em auto;
+    width: 80%;
+    position: relative;
+}
+
+.bar {
+    background-color: purple;
+    margin: 1em auto;
+    display: table-row;
+}
+
+#routeDrop {
+    height: 100%;
+}
+
+#routeInput {
+    height: 50%;
+    margin: auto;
+}
+  
