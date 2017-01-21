@@ -1,0 +1,73 @@
+<div class="card-container">
+  <h1 x-large class="sample-content">Your Content Here</h1>
+
+
+  <div>
+    <a class="waves-effect waves-light btn">Stuff</a>
+    <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
+    <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
+  </div>
+  <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  </li>
+  </ul>
+  <a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast!</a>
+  <a materialize="tooltip" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Hover me!</a>
+  <img class="materialboxed" width="650" src="https://upload.wikimedia.org/wikipedia/commons/c/c4/PM5544_with_non-PAL_signals.png">
+  <div materialize="carousel" [materializeParams]="[{full_width: true}]" class="carousel carousel-slider center" data-indicators="true">
+    <div *ngFor="let item of items" class="carousel-item light-blue darken-2 white-text" href="#one!">
+      <p class="white-text">{{item.name}}</p>
+    </div>
+  </div>
+
+
+  <hr>
+
+  <div>
+    For material design components use the <a href="https://github.com/AngularClass/angular2-webpack-starter/tree/material2"><b>material2</b></a> branch
+  </div>
+
+  <hr>
+
+  <div>
+    For hot module reloading run
+    <pre>npm run start:hmr</pre>
+  </div>
+
+  <hr>
+
+  <div>
+    <h4>Local State</h4>
+
+    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
+
+      <input
+        [value]="localState.value"
+        (input)="localState.value = $event.target.value"
+        placeholder="Submit Local State to App State"
+        autofocus>
+
+      <button md-raised-button color="primary">Submit Value</button>
+    </form>
+    <!--
+        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
+        Rather than wiring up two-way data-binding ourselves with [value] and (input)
+        we can use Angular's [(ngModel)] syntax
+        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
+      -->
+
+    <pre>this.localState = {{ localState | json }}</pre>
+
+  </div>
+
+</div>
