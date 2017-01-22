@@ -8,7 +8,6 @@ import {StopTimeService} from './stop-time.service';
 import { Card } from './card';
 import { SearchComponent } from './search.component';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
