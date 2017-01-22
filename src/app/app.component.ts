@@ -52,6 +52,7 @@ export class AppComponent implements OnInit {
         if(arrival != null) {
 
           this.currentRoute.stops[i].nextScheduleArrival = dateToTimeString(arrival);
+          this.currentRoute.stops[i].nextScheduleArrivalEpoch = arrival.getTime(); // Get epoch time
         } else {
           this.currentRoute.stops[i].nextScheduleArrival = "N/A";
         }
@@ -67,6 +68,8 @@ export class AppComponent implements OnInit {
               if(predicts[val.id] != undefined) {
                 val.nextPredictArrival = dateToTimeString(new Date(predicts[val.id][0].epochTime));
                 val.predictedMinutes = predicts[val.id][0].minutes;
+                val.nextPredictArrivalEpoch = predicts[val.id][0].epochTime;
+                val.diffMinutes = Math.round((val.nextPredictArrivalEpoch - val.nextScheduleArrivalEpoch) / 60000);
               } else {
                 val.nextPredictArrival = "N/A";
               }

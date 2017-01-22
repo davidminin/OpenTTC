@@ -7,4 +7,7 @@ export class Stop {
 	nextScheduleArrival: string;
 	nextPredictArrival: string;
 	predictedMinutes: number;
+	nextScheduleArrivalEpoch: number;
+	nextPredictArrivalEpoch: number;
+	diffMinutes: number;
 }
