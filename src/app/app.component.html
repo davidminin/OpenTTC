@@ -1,3 +1,10 @@
 <h1>
   {{title}}
 </h1>
+
+<p>Selected Route: <span *ngIf="selectedRoute">{{selectedRoute.title}}</span></p>
+<p *ngIf="currPrediction"> {{currPrediction.branch}}: {{currPrediction.seconds}} </p>
+<p *ngIf="!currPrediction"> No predictions </p>
+<ul>
+	<li *ngFor="let route of routes" (click)="onRouteClicked(route)">{{route.id}}</li>
+</ul>

@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { RoutesService } from './routes.service';
+import { PredictionService } from './prediction.service';
+import { StopTimeService } from './stop-time.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [RoutesService, PredictionService, StopTimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
