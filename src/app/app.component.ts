@@ -34,8 +34,11 @@ export class AppComponent implements OnInit {
   	this._routesService.getRoutes().subscribe(r => {
       this.routes = r;
       this.selected = r[0];
+      this.onSelectRoute(r[0]);
     });
-    this._stopTimeService.fetchStopTimes(() => {});
+    this._stopTimeService.fetchStopTimes(() => {
+      console.log(this._stopTimeService.getNextArrivalTime(436));
+    });
   }
   
   onSelectRoute(route: Route) {
@@ -44,6 +47,32 @@ export class AppComponent implements OnInit {
     this._routesService.getRoute(route.id).subscribe(r => {
       // Set route again, but with complete info
       this.currentRoute = r;
+      for(let i = 0; i < this.currentRoute.stops.length; i++) {
+        let arrival = this._stopTimeService.getNextArrivalTime(this.currentRoute.stops[i].id);
+        if(arrival != null) {
+          let hours = arrival.getHours();
+          let minutes = arrival.getMinutes();
+          let suffix: string;
+          if(hours > 24) {
+            hours -= 24;
+            suffix = "AM";
+          } else if(hours == 24) {
+            hours = 12;
+            suffix = "AM";
+          } else if(hours >= 12) {
+            hours -= 12;
+            suffix = "PM";
+          } else if(hours == 12) {
+            suffix = "PM";
+          } else {
+            suffix = "AM";
+          }
+
+          this.currentRoute.stops[i].nextArrival = hours + ":" + ((minutes < 10) ? "0" + minutes : minutes) + " " + suffix;
+        } else {
+          this.currentRoute.stops[i].nextArrival = "N/A";
+        }
+      }
       //this.routeStops = r.stops;
       // if(this.predictSubscription != undefined) {
       //   this.predictSubscription.unsubscribe();
