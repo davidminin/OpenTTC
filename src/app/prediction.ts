@@ -5,3 +5,7 @@ export class Prediction {
 	branch: number;
 	vehicleId: number;
 }
+
+export interface PredictionStopMap {
+	[stopId: number]: Prediction[];
+}
