@@ -80,14 +80,30 @@
     margin-top: 3em;
 }
 
+#complain:hover {
+    background-color: #FF3939;
+}
+
+#complain:active {
+    background-color: #C60000;
+}
+
 #compliment {
-    background-color: lawngreen;
+    background-color: #50CC50;
     float: right;
     height: 5em;
     width: 20em;
     margin-right: 2em;
     margin-top: 3em;
-    color: #13181C;
+    color: white;
+}
+
+#compliment:hover {
+    background-color: #31B731;
+}
+
+#compliment:active {
+    background-color: #169A16;
 }
 
 select{
