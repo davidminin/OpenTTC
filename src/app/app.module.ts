@@ -10,10 +10,6 @@ import { StopTimeService } from './stop-time.service';
 @NgModule({
   declarations: [
     AppComponent
-
-@NgModule({
-  declarations: [
-    AppComponent
   ],
   imports: [
     BrowserModule,
