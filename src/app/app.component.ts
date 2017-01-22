@@ -94,6 +94,14 @@ export class AppComponent implements OnInit {
   onSelectStop(stop: Stop) {
 
   }
+
+  complain(){
+    window.location.href='https://www.ttc.ca/feedback/serviceComplaintSuggestion.action';
+  }
+
+  compliment(){
+    window.location.href='https://www.ttc.ca/feedback/compliment.action';
+  }
 }
 
 const STOPS: Card[] = [
