@@ -1,10 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<div id="background">
+  <div class="head">
+    <h1>Open TTC</h1>
+  </div>
 
-<p>Selected Route: <span *ngIf="selectedRoute">{{selectedRoute.title}}</span></p>
-<p *ngIf="currPrediction"> {{currPrediction.branch}}: {{currPrediction.seconds}} </p>
-<p *ngIf="!currPrediction"> No predictions </p>
-<ul>
-	<li *ngFor="let route of routes" (click)="onRouteClicked(route)">{{route.id}}</li>
-</ul>
+  <div class="container-small">
+    <div class="bar">
+      <h2>Bringing transparency to the TTC with bus analytics.</h2>
+     
+      <input type="text" placeholder="Enter a route or stop #"/><button id="search">Search</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <ul *ngFor="let card of route" (click)="onSelect(card)">
+    <li>
+      <p>{{card.name}}</p>
+      <p>Estimated Arrival: <span class="green">{{card.expArrival}}</span> min</p>
+    </li>
+  </ul>
+</div>

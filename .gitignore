@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+/public
 /tmp
 
 # dependencies
@@ -38,3 +38,7 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+#Raw Datasets
+/ttc_data/*.txt
+/ttc_data/*.csv

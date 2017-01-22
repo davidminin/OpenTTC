@@ -1,0 +1,90 @@
+#background{
+    background-image: url("./../assets/wallpaper.jpg");
+    background-size: cover;                  
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 550px;
+    display: inline-block;
+}
+
+.head {
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+
+.bar {
+    margin: 1em auto;
+    display: table-row;
+}
+
+.green {
+    color: limegreen;
+    font-style: bold;
+}
+
+.container-small {
+    width: 55%;
+    margin: 0 auto;
+    display: table;
+}
+
+.container ul {
+    padding: 0; 
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    height: auto;
+}
+.container ul li {
+    width: 28%;
+    height: 10em;
+    background: white;
+    border-radius: 2px;
+    float: left;
+    margin: 2.5% 0 0 2.5%;
+    padding: 1%;
+    display: block;
+    border: 1px solid rgba(144, 144, 144, 0.25);
+}
+
+input{
+    width: 50%;
+    padding: 8px;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin: 1em 0 0 15%;
+    vertical-align: bottom;
+    font-size: 1em;
+}
+
+#search {
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: lightblue;
+    color: white;
+    vertical-align: bottom;
+    margin: 0 auto 0 0;
+    width: 20%;
+}
+
+/** Fonts **/
+h1, h2 {
+    color: white;
+}
+
+h1 {
+    font-size: 4em;
+    margin-top: 2em;
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+    position: relative;
+}

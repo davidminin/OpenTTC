@@ -1,0 +1,8 @@
+<typeahead
+  [(ngModel)]="selectedRoute"
+  [list]="routes"
+  [searchProperty]="'searchText'" [displayProperty]="'name'"
+  [maxSuggestions]="5"
+  (suggestionSelected)="routeSelected($event)"
+  placeholder="Choose a route">
+</typeahead>
