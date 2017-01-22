@@ -8,21 +8,21 @@
       <h3>Bringing transparency to the TTC with bus analytics.</h3>
      
       <select [(ngModel)]="selected">
-        <option *ngFor="let b of buses" [ngValue]="b">{{b.searchText}}</option>
-      </select><button id="search" (click)="search()">Search</button>
+        <option *ngFor="let r of routes" [ngValue]="r">{{r.title}}</option>
+      </select><button id="search" (click)="onSelectRoute(selected)">Search</button>
     </div>
   </div>
 </div>
 <div class="divider"></div>
 <div id="specialBox">
-  <h2>{{current.code}}</h2>
+  <h2 *ngIf="currentRoute">{{currentRoute.id}}</h2>
 </div>
-<div class="container">
-  <h4>{{current.name}}</h4>
-  <ul *ngFor="let card of route" (click)="onSelect(card)">
+<div class="container" *ngIf="currentRoute">
+  <h4>{{currentRoute.name}}</h4>
+  <ul *ngFor="let stop of currentRoute.stops" (click)="onSelectStop(stop)">
     <li>
-      <p>{{card.name}}</p>
-      <p>Estimated Arrival: <span class="green">{{card.expArrival}}</span> min</p>
+      <p>{{stop.title}}</p>
+      <p>Estimated Arrival: <span class="green">N/A</span> min</p>
     </li>
   </ul>
 </div>

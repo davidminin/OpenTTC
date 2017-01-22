@@ -29,11 +29,15 @@ export class PredictionService {
       return this.obser;
   	}
 
-    // closeObservable(stopId: number) {
-    //   if(this.observables[stopId] != undefined) {
-    //     this.observables[stopId].remove
-    //   }
-    // }
+    getAllStopPredictions(routeId: number, stopIds: number[]) {
+      let query:string = "";
+      stopIds.forEach(val => query += routeId + ":" + val + ",");
+      console.log(query);
+
+      // this.obser = Observable.timer(0, 5000) 
+      //   .switchMap(() => this.http.get('http://restbus.info/api/agencies/ttc/routes/' + routeId + '/stops/' + stopId + '/predictions'))
+      //   .map(extractPredictData);
+    }
 }
 
 function extractPredictData(resp: Response): Prediction[] {

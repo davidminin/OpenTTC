@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Route} from './route';
 import {RoutesService} from './routes.service';
 import {Prediction} from './prediction';
@@ -6,6 +6,7 @@ import {PredictionService} from './prediction.service';
 import {Subscription} from 'rxjs/Rx';
 import {StopTimeService} from './stop-time.service';
 import { Card } from './card';
+import {Stop} from './stop';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +14,8 @@ import { Card } from './card';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  route = STOPS;
-  buses = BUSROUTES;
-  selected = BUSROUTES[0];
-  current = BUSROUTES[0];
-
+export class AppComponent implements OnInit {
+  @Input() routeStops: Stop[];
   routes: Route[] = [];
   predictions: Prediction[] = [];
   selectedRoute: Route = undefined;
@@ -26,47 +23,48 @@ export class AppComponent {
   predictSubscription: Subscription;
   selectedCard: Card;
 
+  selected: Route = undefined;
+  currentRoute: Route = undefined;
+
   constructor(private _routesService: RoutesService, 
     private _predictionService: PredictionService, 
     private _stopTimeService: StopTimeService) {}
 
   ngOnInit() {
-  	this._routesService.getRoutes().subscribe(r => this.routes = r);
+  	this._routesService.getRoutes().subscribe(r => {
+      this.routes = r;
+      this.selected = r[0];
+    });
     this._stopTimeService.fetchStopTimes(() => {});
   }
+  
+  onSelectRoute(route: Route) {
+    this.currentRoute = route;
 
-  onRouteClicked(route: Route) {
-    this.selectedRoute = route;
-    console.log(this._routesService.getRoute(route.id));
     this._routesService.getRoute(route.id).subscribe(r => {
       // Set route again, but with complete info
-      this.selectedRoute = r;
-      if(this.predictSubscription != undefined) {
-        this.predictSubscription.unsubscribe();
-      }
-      console.log(this.selectedRoute.id + ", " + this.selectedRoute.stops[0].id);
-      this.predictSubscription = this._predictionService.getStopPredictions(this.selectedRoute.id, this.selectedRoute.stops[0].id)
-        .subscribe(p => {
-          this.predictions = p;
-          if(this.predictions.length > 0) {
-            this.currPrediction = this.predictions[0];
-          } else {
-            // No upcoming vehicles
-            this.currPrediction = undefined;
-            this.predictSubscription.unsubscribe();
-          }
-        });
+      this.currentRoute = r;
+      //this.routeStops = r.stops;
+      // if(this.predictSubscription != undefined) {
+      //   this.predictSubscription.unsubscribe();
+      // }
+      // console.log(this.currentRoute.id + ", " + this.currentRoute.stops[0].id);
+      // this.predictSubscription = this._predictionService.getStopPredictions(this.currentRoute.id, this.currentRoute.stops[0].id)
+      //   .subscribe(p => {
+      //     this.predictions = p;
+      //     if(this.predictions.length > 0) {
+      //       this.currPrediction = this.predictions[0];
+      //     } else {
+      //       // No upcoming vehicles
+      //       this.currPrediction = undefined;
+      //       this.predictSubscription.unsubscribe();
+      //     }
+      //   });
     });
-
-    
   }
-  
-  onSelect(s: any): void {
-    this.current = s;
-  } 
 
-  search() {
-    this.current = this.selected;
+  onSelectStop(stop: Stop) {
+
   }
 }
 
