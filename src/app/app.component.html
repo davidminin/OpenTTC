@@ -22,7 +22,7 @@
   <ul *ngFor="let stop of currentRoute.stops" (click)="onSelectStop(stop)">
     <li class="card">
       <div class="card-top"><p class="card-title">{{stop.title}}</p></div>
-      <p>#{{stop.id}}<span class="min">MIN</span><span class="green">{{stop.predictedMinutes}}</span></p>
+      <p>#{{stop.id}}<span class="min">MIN DIFF</span><span class="green">{{stop.diffMinutes}}</span></p>
       <div class="halfDiv">
         <h5>{{stop.nextPredictArrival}}</h5>
         <p class="center">ESTIMATE</p>
