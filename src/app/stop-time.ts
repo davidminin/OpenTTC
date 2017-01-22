@@ -1,4 +1,4 @@
 export class StopTime {
 	stopId: number;
-	arrivalTimes: string;
+	arrivalTimes: string[];
 }

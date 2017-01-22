@@ -4,4 +4,5 @@ export class Stop {
 	title: string;
 	lat: number;
 	lon: number;
+	nextArrival: string;
 }
