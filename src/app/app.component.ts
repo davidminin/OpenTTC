@@ -33,8 +33,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   	this._routesService.getRoutes().subscribe(r => {
       this.routes = r;
-      this.selected = r[0];
-      this.onSelectRoute(r[0]);
+      this.selected = r.find(val => val.id == 105);
+      this.onSelectRoute(this.selected);
     });
     this._stopTimeService.fetchStopTimes(() => {
       console.log(this._stopTimeService.getNextArrivalTime(436));
@@ -50,29 +50,28 @@ export class AppComponent implements OnInit {
       for(let i = 0; i < this.currentRoute.stops.length; i++) {
         let arrival = this._stopTimeService.getNextArrivalTime(this.currentRoute.stops[i].id);
         if(arrival != null) {
-          let hours = arrival.getHours();
-          let minutes = arrival.getMinutes();
-          let suffix: string;
-          if(hours > 24) {
-            hours -= 24;
-            suffix = "AM";
-          } else if(hours == 24) {
-            hours = 12;
-            suffix = "AM";
-          } else if(hours >= 12) {
-            hours -= 12;
-            suffix = "PM";
-          } else if(hours == 12) {
-            suffix = "PM";
-          } else {
-            suffix = "AM";
-          }
 
-          this.currentRoute.stops[i].nextArrival = hours + ":" + ((minutes < 10) ? "0" + minutes : minutes) + " " + suffix;
+          this.currentRoute.stops[i].nextScheduleArrival = dateToTimeString(arrival);
         } else {
-          this.currentRoute.stops[i].nextArrival = "N/A";
+          this.currentRoute.stops[i].nextScheduleArrival = "N/A";
         }
       }
+      if(this.predictSubscription != undefined) {
+        this.predictSubscription.unsubscribe();
+      }
+      this.predictSubscription = this._predictionService.getAllStopPredictions(this.currentRoute.id, this.currentRoute.stops.map(val => val.id))
+          .subscribe(predicts => {
+            console.log(predicts);
+            this.currentRoute.stops.forEach(val => {
+              console.log("test: " + val.id + "=" + predicts[val.id]);
+              if(predicts[val.id] != undefined) {
+                val.nextPredictArrival = dateToTimeString(new Date(predicts[val.id][0].epochTime));
+                val.predictedMinutes = predicts[val.id][0].minutes;
+              } else {
+                val.nextPredictArrival = "N/A";
+              }
+            });
+          });
       //this.routeStops = r.stops;
       // if(this.predictSubscription != undefined) {
       //   this.predictSubscription.unsubscribe();
@@ -136,3 +135,25 @@ const BUSROUTES: any[] = [
       code: "005"
     }
 ];
+
+function dateToTimeString(date: Date): string {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let suffix: string;
+  if(hours > 24) {
+    hours -= 24;
+    suffix = "AM";
+  } else if(hours == 24) {
+    hours = 12;
+    suffix = "AM";
+  } else if(hours >= 12) {
+    hours -= 12;
+    suffix = "PM";
+  } else if(hours == 12) {
+    suffix = "PM";
+  } else {
+    suffix = "AM";
+  }
+
+  return hours + ":" + ((minutes < 10) ? "0" + minutes : minutes) + " " + suffix;
+}
