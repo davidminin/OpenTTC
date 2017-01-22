@@ -3,24 +3,16 @@ import { Component } from '@angular/core';
  
 @Component({
     selector: 'search-component',
-    template: require('./search.component.html'),
-    styles: [`
-        .typeahead-input,
-        .typeahead-typeahead{
-            width: 250px;
-            padding: 8px;
-            border-radius: 5px;
-        }
-    `]
+    template: require('./search.component.html')
 })
+
 export class SearchComponent {
- 
-  fruitName: string;
-  fruits: any[] = [
+  routeName: string;
+  routes: any[] = [
     {
       id: 1,
-      name: "Apple",
-      searchText: "apple"
+      name: "badabing",
+      searchText: "badabing"
     },
     {
       id: 2,
@@ -34,10 +26,10 @@ export class SearchComponent {
     }
   ];
  
-  selectedFruit: any = this.fruits[0];
+  selectedRoute: null;
  
-  public fruitSelected(fruit) {
-    this.fruitName = fruit ? fruit.name : 'none';
+  public routeSelected(route) {
+    this.routeName = route ? route.name : 'none';
   }
  
 }

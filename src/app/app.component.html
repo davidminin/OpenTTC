@@ -1,18 +1,21 @@
 <div id="background">
-  <div class="top">
+  <div class="head">
     <h1>Open TTC</h1>
+  </div>
 
+  <div class="container-small">
     <div class="bar">
-      <input id="inputRoute" placeholder="Choose your Route"/>
-      <search-component></search-component>
+      <h2>Bringing transparency to the TTC with bus analytics.</h2>
+     
+      <input type="text" placeholder="Enter a route or stop #"/><button id="search">Search</button>
     </div>
   </div>
 </div>
 <div class="container">
   <ul *ngFor="let card of route" (click)="onSelect(card)">
     <li>
-      <p>Stop: {{card.name}} </p>
-      <p>Estimated Arrival: <span class="green">{{card.expArrival}}</span></p>
+      <p>{{card.name}}</p>
+      <p>Estimated Arrival: <span class="green">{{card.expArrival}}</span> min</p>
     </li>
   </ul>
 </div>
