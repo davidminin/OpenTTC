@@ -59,6 +59,7 @@
 }
 .container ul li {
     width: 28%;
+    height: 18em;
     background: white;
     border-radius: 2px;
     float: left;
