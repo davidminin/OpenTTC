@@ -69,6 +69,26 @@
     padding: 1px 2px 0 0;
 }
 
+#complain {
+    background-color: #FF6464;
+    color: white;
+    float: left;
+    height: 5em;
+    width: 20em;
+    margin-left: 2em;
+    margin-top: 3em;
+}
+
+#compliment {
+    background-color: lawngreen;
+    float: right;
+    height: 5em;
+    width: 20em;
+    margin-right: 2em;
+    margin-top: 3em;
+    color: #13181C;
+}
+
 select{
     width: 50%;
     padding-left: 10px;
