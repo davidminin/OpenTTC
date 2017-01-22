@@ -5,7 +5,7 @@
 
   <div class="container-small">
     <div class="bar">
-      <h3>Bringing transparency to the TTC with bus analytics.</h3>
+      <h3>Bringing transparency to the TTC with bus and streetcar analytics.</h3>
      
       <select [(ngModel)]="selected">
         <option *ngFor="let r of routes" [ngValue]="r">{{r.title}}</option>
@@ -21,10 +21,25 @@
   <h4>{{currentRoute.name}}</h4>
   <ul *ngFor="let stop of currentRoute.stops" (click)="onSelectStop(stop)">
     <li>
-      <p>{{stop.title}}</p>
-      <p>Estimated Arrival: <span class="green">N/A</span> min</p>
+      <div class="card-top"><p class="card-title">{{stop.title}}</p></div>
+      <p>{{stop.id}}<span class="min">min</span><span class="green">N/A</span></p>
+      <div class="halfDiv">
+        <h5>7:32</h5>
+        <p class="center">Cur. Estimate</p>
+      </div><div class="halfDiv">
+        <h5>7:30pm</h5>
+        <p class="center">Expected At</p>
+      </div>
+      <div class="halfDiv">
+        <h5>0</h5>
+        <p class="center">Late Today</p>
+      </div><div class="halfDiv">
+        <h5>2</h5>
+        <p class="center">Late This Week</p>
+      </div>
     </li>
   </ul>
 </div>
-<div class="divider">
+<div class="divider" style="height: 6em; margin-top: 2em">
+  <h6>Created by Tal Zaitsev and David Minin for UofT Hacks 4.</h6>
 </div>

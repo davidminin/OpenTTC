@@ -25,9 +25,21 @@
     background-color: #13181C;
 }
 
+.halfDiv {
+    width: 50%;
+    display: inline-block;
+    margin: 0.5em 0;
+}
+
 .green {
     color: limegreen;
-    font-style: bold;
+    font-weight: 500;
+    float: right;
+}
+
+.min {
+    float: right;
+    margin: 0 2px;
 }
 
 .container-small {
@@ -45,14 +57,14 @@
 }
 .container ul li {
     width: 28%;
-    height: 10em;
     background: white;
     border-radius: 2px;
     float: left;
-    margin: 2.5% 0 0 2.5%;
+    margin: 1.25% 0 1.25% 2.5%;
     padding: 1%;
     display: block;
     border: 1px solid rgba(144, 144, 144, 0.25);
+    padding: 1px 2px 0 0;
 }
 
 select{
@@ -68,6 +80,10 @@ select{
     border: none;
 }
 
+select:focus {
+    border: none;
+}
+
 #specialBox {
     position: relative;
     left: 4em;
@@ -76,13 +92,9 @@ select{
     top: -6em;
     background-color: #13181C;
     border-radius: 8px;
-    margin-bottom: -3em;
+    margin-bottom: -2.5em;
     display: table;
     text-align: center;
-}
-
-select:focus {
-    border: none;
 }
 
 #search {
@@ -106,8 +118,15 @@ select:focus {
     background-color: #5190A5;
 }
 
+.card-top {
+    width: 100%;
+    background-color: #FF0000;
+    padding-left: 2px;
+    margin: 0;
+}
+
 /** Fonts **/
-h1, h3 {
+h1, h3, h6 {
     color: white;
 }
 
@@ -137,3 +156,27 @@ h4 {
     margin: 0 0 0 0.75em;
 }
 
+h5 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+h6 {
+    margin: 0;
+    padding-top: 2em;
+    text-align: center;
+}
+
+p {
+    margin-left: 2px;
+    margin: 0;
+}
+
+.card-title {
+    color: white;
+}
+
+.center {
+    text-align: center;
+}
