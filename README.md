@@ -17,7 +17,7 @@ The end goal of such a project would be to focus on data trends and insight anal
 
 # Screenshots
 Dashboard - you can see the full list of buses and streetcars that the TTC offers 
-[[https://github.com/DavidMini/OpenTTC/blob/master/screenshots/dash.png|alt=octocat]]
+![alt text](https://github.com/DavidMini/OpenTTC/blob/master/screenshots/dash.png)
 
 Fullscreen - for Demo purposes only the first few stops were tracking any sort of data
-[[https://github.com/DavidMini/OpenTTC/blob/master/screenshots/fullscreen.jpg|alt=octocat]]
+![alt text](https://github.com/DavidMini/OpenTTC/blob/master/screenshots/fullscreen.jpg)
