@@ -16,3 +16,8 @@ OpenTTC was based on the idea of being able to historically track your buses/str
 The end goal of such a project would be to focus on data trends and insight analytics. With enough historical data on transit times, it becomes apparent where the pain points of a commute becomes (and at what times they become a problem). Something like this can easily be used for consultation when trying to improve transit systems across cities.
 
 # Screenshots
+Dashboard - you can see the full list of buses and streetcars that the TTC offers 
+[[https://github.com/DavidMini/OpenTTC/blob/master/screenshots/dash.png|alt=octocat]]
+
+Fullscreen - for Demo purposes only the first few stops were tracking any sort of data
+[[https://github.com/DavidMini/OpenTTC/blob/master/screenshots/fullscreen.jpg|alt=octocat]]
